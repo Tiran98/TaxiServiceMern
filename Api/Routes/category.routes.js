@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Category = require('../Models/category.model')
 
-router.route('/category').get((req,res) => {
+router.route('/getCategory').get((req,res) => {
     Category.find((err, data) => {
         if(err){
             console.log(err)
@@ -15,8 +15,9 @@ router.route('/category').get((req,res) => {
 
 router.route('/category').post((req,res) => {
     const category_name = req.body.category_name;
+    const category_fee = req.body.category_fee;
 
-    const newCategory = new Category({category_name});
+    const newCategory = new Category({category_name,category_fee});
 
     newCategory.save((err,data) => {
         if(err){

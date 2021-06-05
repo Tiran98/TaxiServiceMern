@@ -7,35 +7,42 @@ const vehicleSchema = new Schema({
         required: true,
         unique: true,
         trim: true,
-        minlength: 3
+        minlength: 1
     },
     model:{
         type: String,
         required: true,
         unique: false,
         trim: true,
-        minlength:3
+        minlength:1
     },
     type:{
         type:String,
         required: true,
         unique:false,
         trip:true,
-        minlength:3
+        minlength:1
     },
     name:{
         type:String,
         required:true,
         unique:false,
         trim:true,
-        minlength:3
+        minlength:1
     },
     categories:{
         type:String,
         required:true,
         unique:false,
         trim:true,
-        minlength:3
+        minlength:1
+    },
+    hire_fee:{
+        type:String,
+        required:true,
+        unique:false,
+        trim:true,
+        minlength:1
     },
 }, {
     timestamps:true,
