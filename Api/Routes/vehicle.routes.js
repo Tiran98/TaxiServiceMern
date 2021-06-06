@@ -35,4 +35,17 @@ router.route('/vehicle').post((req,res) => {
     });
 });
 
+router.route('/getVehicleFee').post((req,res) => {
+    Vehicle.findOne({'name':req.body.name}, (err,data) => {
+        if(err){
+            console.log(err)
+            res.status(400).send({
+                message: err.message || "Some error occurred while retrieving Vehicle."
+            });
+        }
+        res.send(data)
+        console.log(data)
+    });
+});
+
 module.exports = router;

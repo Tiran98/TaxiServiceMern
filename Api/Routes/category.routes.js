@@ -6,7 +6,7 @@ router.route('/getCategory').get((req,res) => {
         if(err){
             console.log(err)
             res.status(400).send({
-                message: err.message || "Some error occurred while retrieving Vehicles."
+                message: err.message || "Some error occurred while retrieving Category."
             });
         }
         res.send(data)
@@ -23,11 +23,24 @@ router.route('/category').post((req,res) => {
         if(err){
             console.log(err)
             res.status(400).send({
-                message: err.message || "Some error occurred while Adding Vehicles."
+                message: err.message || "Some error occurred while Adding Category."
             });
         }
         res.send(data)
         console.log("Category successfuly added")
+    });
+});
+
+router.route('/getCategoryFee').post((req,res) => {
+    Category.findOne({'category_name':req.body.category_name}, (err,data) => {
+        if(err){
+            console.log(err)
+            res.status(400).send({
+                message: err.message || "Some error occurred while retrieving Category."
+            });
+        }
+        res.send(data)
+        console.log(data)
     });
 });
 
